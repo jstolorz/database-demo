@@ -22,7 +22,7 @@ public class DatabaseDemoApplication implements CommandLineRunner{
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	PersonSpringDataRepository repository;
+	PersonJpaRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DatabaseDemoApplication.class, args);
@@ -39,15 +39,15 @@ public class DatabaseDemoApplication implements CommandLineRunner{
 		person.setBirtDate(new Date());
 
 
-		logger.info("insert  -> {}", repository.save(person));
+		logger.info("insert  -> {}", repository.insert(person));
 
 		person.setName("Adrian");
 		person.setLocation("Madryt");
 		person.setBirtDate(new Date());
 
-		logger.info("insert  -> {}", repository.save(person));
+		logger.info("insert  -> {}", repository.update(person));
 
-		logger.info("find 1 -> {} ", repository.findById(1));
+		logger.info("find 1 -> {} ", repository.findByName(1));
 
 		logger.info("Find All -> {}", repository.findAll());
 
