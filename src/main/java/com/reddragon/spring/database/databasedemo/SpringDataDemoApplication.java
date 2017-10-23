@@ -39,5 +39,7 @@ public class SpringDataDemoApplication implements CommandLineRunner {
         repository.deleteById(10002);
 
         logger.info("All users -> {}", repository.findAll());
+
+        logger.info("Test GitHub repository");
     }
 }
